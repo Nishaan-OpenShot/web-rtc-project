@@ -1,6 +1,7 @@
 
-//checks if browser supports WebRTC
+
 function hasUserMedia() {
+    //checks if browser supports WebRTC
     navigator.getUserMedia = navigator.getUserMedia || navigator.webKitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
     return !!navigator.getUserMedia;
 }
@@ -10,11 +11,11 @@ if(hasUserMedia()) {
 
     //get both video and autdio streams from user's camera
     navigator.getUserMedia({video: true,audio: true},function(stream) {
-var video =document.querySelector('video');
+    var video = document.querySelector('video');
 
-//insert stream into the video tag
-video.sr = window.URL.createObjectURL(stream);
-    },function(err) {});
+    //insert stream into the video tag
+    video.sr = window.URL.createObjectURL(stream);
+        },function(err) {});
 } else {
     alert('Error. WebRTC is not supported!');
 }
